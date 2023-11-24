@@ -109,7 +109,7 @@ li {
 }
 
 .all {
-  background: linear-gradient(blue, crimson);
+  background: linear-gradient(#288994, crimson);
 }
 
 .sidebar-label-container:hover input ~ .checkmark {
@@ -117,7 +117,7 @@ li {
 }
 
 .sidebar-label-container input:checked ~ .checkmark {
-  background-color: #2196f3;
+  background-color: #288994;
 }
 
 .checkmark:after {
