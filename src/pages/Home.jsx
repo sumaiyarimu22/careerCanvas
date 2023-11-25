@@ -3,10 +3,11 @@ import Banner from "../components/Banner";
 import Card from "../components/Card";
 import Jobs from "./Jobs";
 import Sidebar from "../sidebar/Sidebar";
+import NewsLetter from "../components/NewsLetter";
 
 const Home = () => {
-  const [selectedCategory, setSelectedCategory] = useState(null);
   const [jobs, setJobs] = useState([]);
+  const [selectedCategory, setSelectedCategory] = useState(null);
   const [query, setQuery] = useState("");
   const [isLoading, setIsLoading] = useState(true);
   const [currentPage, setCurrentPage] = useState(1);
@@ -26,18 +27,12 @@ const Home = () => {
 
   //filter jobs by title
   const filteredItems = jobs.filter(
-    (job) =>
-      job.jobTitle.toLowerCase().indexOf(query.toLocaleLowerCase()) !== -1
+    (job) => job.jobTitle.toLowerCase().indexOf(query.toLowerCase()) !== -1
   );
 
   //----------Radio filtering-----------
   const handleChange = (e) => {
     setSelectedCategory(e.target.value);
-  };
-
-  //------------button based filtering
-  const handleClick = (e) => {
-    selectedCategory(e.target.value);
   };
 
   //---------calculate the index range
@@ -79,10 +74,12 @@ const Home = () => {
           employmentType,
           postingDate,
         }) =>
-          jobLocation.toLocaleLowerCase() === selected.toLocaleLowerCase() ||
+          postingDate >= selected ||
+          jobLocation.toLowerCase() === selected.toLowerCase() ||
           parseInt(maxPrice) <= parseInt(selected) ||
-          salaryType.toLocaleLowerCase() === selected.toLocaleLowerCase() ||
-          employmentType.toLocaleLowerCase() === selected.toLocaleLowerCase()
+          salaryType.toLowerCase() === selected.toLowerCase() ||
+          employmentType.toLowerCase() === selected.toLowerCase() ||
+          experienceLevel.toLowerCase() === selected.toLowerCase()
       );
     }
 
@@ -103,7 +100,7 @@ const Home = () => {
       <div className='bg-[#FAFAFA] md:grid grid-cols-4 gap-8 lg:px-24 px-4 py-12'>
         {/* left side */}
         <div className='bg-white p-4 rounded'>
-          <Sidebar handleChange={handleChange} handleClick={handleClick} />
+          <Sidebar handleChange={handleChange} />
         </div>
         {/* JOB CARDS */}
         <div className='col-span-2 bg-white p-4 rounded'>
@@ -147,7 +144,9 @@ const Home = () => {
           )}
         </div>
         {/* right side */}
-        <div className='bg-white p-4 rounded'>Right</div>
+        <div className='bg-white p-4 rounded'>
+          <NewsLetter />
+        </div>
       </div>
     </div>
   );

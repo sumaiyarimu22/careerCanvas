@@ -10,6 +10,7 @@ const Card = ({ data }) => {
     salaryType,
     jobLocation,
     employmentType,
+    experienceLevel,
     postingDate,
     description,
     jobTitle,
@@ -32,7 +33,7 @@ const Card = ({ data }) => {
             </span>
             <span className='flex items-center gap-2'>
               <FiDollarSign />
-              {minPrice}-{maxPrice}
+              {minPrice}-{maxPrice}k
             </span>
             <span className='flex items-center gap-2'>
               <FiCalendar />
