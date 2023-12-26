@@ -10,9 +10,9 @@ const Sidebar = ({ handleChange }) => {
       <h3 className=' text-lg font-bold mb-2'>Filters</h3>
       <Location handleChange={handleChange} />
       <Salary handleChange={handleChange} />
-      <JobPostingData handleChange={handleChange} />
       <WorkExperience handleChange={handleChange} />
       <EmploymentType handleChange={handleChange} />
+      <JobPostingData handleChange={handleChange} />
     </div>
   );
 };

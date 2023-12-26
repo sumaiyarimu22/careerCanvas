@@ -160,7 +160,7 @@
     "companyLogo": "/images/Trainline.png",
     "minPrice": "80",
     "maxPrice": "120",
-    "salaryType": "Yearly",
+    "salaryType": "Hourly",
     "jobLocation": "Boston",
     "postingDate": "2022-10-05",
     "experienceLevel": "Internship",
