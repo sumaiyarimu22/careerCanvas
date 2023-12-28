@@ -39,14 +39,11 @@ const Navbar = () => {
 
         {/* signup and login btn */}
         <div className='font-medium space-x-5 hidden lg:block'>
-          <Link to='/Login' className='py-2 px-5 border rounded '>
-            Login
-          </Link>
           <Link
-            to='/sign-up'
+            to='/Login'
             className='py-2 px-5 border rounded bg-blue text-white'
           >
-            sign up
+            Login
           </Link>
         </div>
 
